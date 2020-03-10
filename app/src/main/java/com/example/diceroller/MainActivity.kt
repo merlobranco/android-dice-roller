@@ -10,21 +10,25 @@ import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
+    // Promises the variable will initialize before performing any operation on it
+    lateinit var diceImage: ImageView
+
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         // Getting the Roll Button
         val rollButton: Button = findViewById(R.id.roll_button)
         rollButton.setOnClickListener {
-//            Toast.makeText(this, "button clicked", Toast.LENGTH_SHORT).show()
             rollDice()
         }
+
+        diceImage =  findViewById(R.id.dice_image)
     }
 
     private fun rollDice() {
         val randomInt = Random().nextInt(6) + 1
-        val diceImage: ImageView = findViewById(R.id.dice_image)
 
         // Getting the image resource
         val drawableResource = when (randomInt) {
