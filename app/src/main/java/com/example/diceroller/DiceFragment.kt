@@ -23,17 +23,18 @@ class DiceFragment : Fragment() {
 
         // Getting the Roll Button
         binding.rollButton.setOnClickListener {
-            rollDice()
+            viewModel.rollDice()
+            updateImage()
         }
 
         return binding.root
     }
 
-    private fun rollDice() {
-        val randomInt = Random().nextInt(6) + 1
+    private fun updateImage() {
+//        val randomInt = Random().nextInt(6) + 1
 
         // Getting the image resource
-        val drawableResource = when (randomInt) {
+        val drawableResource = when (viewModel.randomInt) {
             1 -> R.drawable.dice_1
             2 -> R.drawable.dice_2
             3 -> R.drawable.dice_3
