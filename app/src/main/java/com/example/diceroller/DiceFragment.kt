@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import com.example.diceroller.databinding.DiceFragmentBinding
 import java.util.*
 
@@ -13,8 +14,12 @@ class DiceFragment : Fragment() {
 
     private lateinit var binding: DiceFragmentBinding
 
+    private lateinit var viewModel: DiceViewModel
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.dice_fragment, container, false)
+
+        viewModel = ViewModelProvider(this).get(DiceViewModel::class.java)
 
         // Getting the Roll Button
         binding.rollButton.setOnClickListener {
