@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="diceViewModel"
             type="com.example.diceroller.DiceViewModel" />
@@ -21,6 +22,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
+            app:imageResource="@{diceViewModel.randomInt}"
             app:srcCompat="@drawable/empty_dice"
             tools:src="@drawable/dice_1" />
 
@@ -29,8 +31,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="@string/roll"
-            android:onClick="@{() -> diceViewModel.rollDice()}"/>
+            android:onClick="@{() -> diceViewModel.rollDice()}"
+            android:text="@string/roll" />
 
     </LinearLayout>
 </layout>
