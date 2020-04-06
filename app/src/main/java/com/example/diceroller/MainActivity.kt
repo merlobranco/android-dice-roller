@@ -6,25 +6,23 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.databinding.DataBindingUtil
+import com.example.diceroller.databinding.ActivityMainBinding
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
-    // Promises the variable will initialize before performing any operation on it
-    lateinit var diceImage: ImageView
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
         // Getting the Roll Button
-        val rollButton: Button = findViewById(R.id.roll_button)
-        rollButton.setOnClickListener {
+        binding.rollButton.setOnClickListener {
             rollDice()
         }
-
-        diceImage =  findViewById(R.id.dice_image)
     }
 
     private fun rollDice() {
@@ -41,7 +39,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         // Populating the image resource
-        diceImage.setImageResource(drawableResource)
+        binding.diceImage.setImageResource(drawableResource)
     }
 
 
