@@ -3,6 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="diceViewModel"
+            type="com.example.diceroller.DiceViewModel" />
+    </data>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -23,7 +29,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="@string/roll" />
+            android:text="@string/roll"
+            android:onClick="@{() -> diceViewModel.rollDice()}"/>
 
     </LinearLayout>
 </layout>

@@ -20,11 +20,7 @@ class DiceFragment : Fragment() {
         binding = DataBindingUtil.inflate(inflater, R.layout.dice_fragment, container, false)
 
         viewModel = ViewModelProvider(this).get(DiceViewModel::class.java)
-
-        // Getting the Roll Button
-        binding.rollButton.setOnClickListener {
-            viewModel.rollDice()
-        }
+        binding.diceViewModel = viewModel
 
         viewModel.randomInt.observe(viewLifecycleOwner, Observer { newValue ->
             updateImage(newValue)
@@ -34,7 +30,6 @@ class DiceFragment : Fragment() {
     }
 
     private fun updateImage(value: Int) {
-//        val randomInt = Random().nextInt(6) + 1
         if (value == 0)
             return
 
